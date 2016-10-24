@@ -1,0 +1,43 @@
+{
+  "name": "redux-react-webpack-boilerplate",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emartini/redux-react-webpack-boilerplate.git"
+  },
+  "keywords": [
+    "react",
+    "webpack",
+    "redux",
+    "react-hot-loader"
+  ],
+  "author": "Esteban Martini",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/emartini/redux-react-webpack-boilerplate/issues"
+  },
+  "homepage": "https://github.com/emartini/redux-react-webpack-boilerplate#readme",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "webpack": "^2.1.0-beta.25"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-object-rest-spread": "^6.16.0",
+    "babel-preset-es2015-native-modules": "^6.9.4",
+    "babel-preset-react": "^6.16.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "webpack-dev-server": "^2.1.0-beta.9"
+  }
+}
