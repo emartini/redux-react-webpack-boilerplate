@@ -2,3 +2,7 @@
 .node_repl_history
 node_modules
 npm-debug.log*
+
+#conflicts with github for mac
+
+!app/components/Icon
