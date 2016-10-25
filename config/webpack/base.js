@@ -7,14 +7,34 @@ module.exports = {
     chunkFilename: '[name].chunk.js'
   },
   module: {
-    loaders: [{
-      test: /\.(js|jsx)?$/,
-      loader: 'babel',
-      exclude: /node_modules/,
-      query: {
-        cacheDirectory: true
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'babel',
+        exclude: /node_modules/,
+        query: {
+          cacheDirectory: true
+        }
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              module: true,
+              importLoaders: 1,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          }
+        ]
       }
-    }]
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx']
