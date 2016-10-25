@@ -1,0 +1,31 @@
+.fontType {
+  font-size: 2em;
+  line-height: 2;
+}
+
+.body {
+  composes: fontType;
+  line-height: 1.5;
+  color: green;
+}
+
+.header {
+  composes: fontType;
+  color: blue;
+}
+
+.footer {
+  composes: fontType;
+  border-top: 1px solid grey;
+  color: green;
+  margin-top: 12px;
+}
+
+.common {}
+.normal {
+  composes: common;
+}
+
+.inProgress {
+  composes: common;
+}
