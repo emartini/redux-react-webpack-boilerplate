@@ -1,0 +1,74 @@
+@value appleBlue, primary from 'colors' ;
+@value small as phone, medium as tablet from 'breakpoints' ;
+
+:root {
+  --main-bg-color: peru;
+}
+
+.fontType {
+  font-size: 2em;
+  line-height: 2;
+}
+
+.body {
+  composes: fontType;
+  line-height: 1.5;
+  display: flex;
+}
+
+.header {
+  composes: fontType;
+  color: appleBlue;
+  background: papayawhip;
+  text-align: center;
+
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+.pulseAnimation {
+  animation-duration: 2.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  composes: pulse from 'animations.css';
+}
+
+.footer {
+  composes: fontType;
+  border-top: 1px solid grey;
+  color: rebeccapurple;
+  margin-top: 12px;
+  background-color: var(--main-bg-color);
+  font-size: 1rem;
+}
+
+.common {
+  background: #ccc;
+}
+
+.normal {
+  composes: common;
+}
+
+.inProgress {
+  composes: common;
+  display: flex;
+}
+
+@media phone {
+  .header {
+    text-align: center;
+  }
+
+  .common {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media tablet {
+  .common {
+    width: 100px;
+  }
+}

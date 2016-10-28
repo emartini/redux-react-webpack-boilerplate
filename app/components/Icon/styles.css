@@ -1,0 +1,18 @@
+@value red, appleBlue from 'colors' ;
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.red {
+  fill: red;
+}
+
+.black {
+  fill: black;
+}
+
+.blue {
+  fill: appleBlue;
+}
