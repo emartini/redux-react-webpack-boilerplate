@@ -22,7 +22,7 @@ module.exports = {
         use: [
           'style-loader',
           {
-            loader: 'css-loader',
+            loader: 'css',
             options: {
               module: true,
               importLoaders: 1,
@@ -30,13 +30,17 @@ module.exports = {
             }
           },
           {
-            loader: 'postcss-loader'
+            loader: 'postcss'
           }
         ]
       }
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.css'],
+    modules: [
+      path.resolve('./app/stylesheets'),
+      'node_modules'
+    ]
   }
 };
