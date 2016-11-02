@@ -19,8 +19,8 @@
 .header {
   composes: fontType;
   color: appleBlue;
-  background: papayawhip;
   text-align: center;
+  background: url('../../images/backgrounds/colorful-bg.jpg') papayawhip;
 
   h1 {
     font-size: 4rem;
@@ -43,32 +43,14 @@
   font-size: 1rem;
 }
 
-.common {
-  background: #ccc;
-}
-
-.normal {
-  composes: common;
-}
-
-.inProgress {
-  composes: common;
-  display: flex;
-}
-
 @media phone {
   .header {
     text-align: center;
   }
-
-  .common {
-    display: block;
-    width: 100%;
-  }
 }
 
-@media tablet {
-  .common {
-    width: 100px;
+.svgContainer {
+  svg > rect {
+    fill: transparent;
   }
 }

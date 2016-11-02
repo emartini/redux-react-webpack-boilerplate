@@ -1,4 +1,10 @@
 .body {
   overflow-wrap: break-word;
   hyphens: auto;
+  line-height: 1.6;
+  max-width: 600px;
+
+  img {
+    display: block;
+  }
 }
