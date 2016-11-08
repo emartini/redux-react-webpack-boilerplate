@@ -6,3 +6,4 @@ npm-debug.log*
 #conflicts with github for mac
 
 !app/components/Icon
+dist
