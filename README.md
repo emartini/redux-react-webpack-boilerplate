@@ -3,7 +3,7 @@ redux-react-webpack-boilerplate
 
 Includes:
 
-
+- [Yarn](https://github.com/yarnpkg/yarn) as package manager
 - ES2015 and JSX support throught [Babel](https://babeljs.io/).
 - React 15.3
 - Redux 3.6
@@ -44,18 +44,52 @@ app
 ```
 
 
-## NPM commands
+## Commands
+
+### Install dependencies
+
+In order to use Yarn, you should follow the [official installation guide](https://yarnpkg.com/en/docs/install), then you can easily install all the dependencies.
+
+
+```
+yarn install
+```
+
 
 ### Start Webpack development server
 
 ```
-npm start
+yarn start
 ```
 
-It will start a development server accesible from `localhost:9010`.
+It will start a development server accessible from `localhost:9010`.
 
-### Check CSS problems
+### Check for problems
+
+**CSS**:
 
 ```
-npm run stylelint -s
+yarn run validate:styles
 ```
+
+**JS**:
+
+```
+yarn run validate:js
+```
+
+
+**Webpack**, some webpack 2 new rules are marked as invalid, like `rules` and `modules`. It should be fixed in future versions.
+
+```
+yarn run validate:webpack:[dev|prod]
+```
+
+### Production build
+
+```
+yarn run build:prod
+```
+
+Output files will be placed in `./dist` and old files will be deleted after
+complete the process.
