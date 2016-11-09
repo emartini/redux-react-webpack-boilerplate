@@ -1,19 +1,9 @@
 const HOST = 'localhost';
 const PORT = 9010;
-const path = require('path');
 const webpack = require('webpack');
-const defaultConfig = require('./default');
+const defaults = require('./defaults');
 
-const options = {
-  file: {
-    name: '[path][name]-[hash].[ext]'
-  },
-  css: {
-    module: true,
-    importLoaders: 1,
-    localIdentName: '[name]__[local]___[hash:base64:5]'
-  }
-};
+const loader = defaults.loader;
 
 const devConfig = {
   devtool: 'cheap-eval-source-map',
@@ -22,28 +12,26 @@ const devConfig = {
       `webpack-dev-server/client?http://${HOST}:${PORT}`,
       'webpack/hot/only-dev-server',
       'react-hot-loader/patch',
-      './app/main.js'
+      defaults.entry.main
     ]
+  },
+  output: {
+    filename: 'bundle.[name].js'
   },
   module: {
     rules: [
+      loader.babel,
       {
-        test: /.*\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          { loader: 'file', options: options.file }
-        ],
-        include: path.join(__dirname, '..', '..', 'app', 'images'),
+        test: defaults.options.images.rule,
+        use: [loader.file],
+        include: defaults.options.images.path,
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: [
-          'style',
-          { loader: 'css', options: options.css },
-          'postcss'
-        ]
+        use: ['style', loader.css, 'postcss']
       }
-    ],
+    ]
   },
   plugins: [
     new webpack.NoErrorsPlugin(),
@@ -59,7 +47,8 @@ const devConfig = {
   }
 };
 
-const config = Object.assign({}, defaultConfig, devConfig);
-config.module.rules = defaultConfig.module.rules.concat(devConfig.module.rules);
+const webpackConfig = defaults.webpack;
+const config = Object.assign({}, webpackConfig, devConfig);
+config.plugins = webpackConfig.plugins.concat(devConfig.plugins);
 
 module.exports = config;

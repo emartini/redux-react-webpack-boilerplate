@@ -6,7 +6,12 @@
   "scripts": {
     "start": "webpack-dev-server --config config/webpack/development.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "stylelint": "stylelint 'app/**/*.css'"
+    "build": "webpack",
+    "build:prod": "webpack --config config/webpack/production.js -p",
+    "validate": "run-p validate:styles validate:js",
+    "validate:styles": "stylelint 'app/**/*.css'",
+    "validate:js": "eslint 'app/**/*.js'",
+    "validate:webpack:dev": "webpack-validator config/webpack/development.js --env.dev"
   },
   "repository": {
     "url": "git+https://github.com/emartini/redux-react-webpack-boilerplate.git",
@@ -25,6 +30,7 @@
   },
   "homepage": "https://github.com/emartini/redux-react-webpack-boilerplate#readme",
   "dependencies": {
+    "es6-promise": "^4.0.5",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
@@ -44,12 +50,14 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
     "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.24.1",
     "image-webpack-loader": "^3.0.0",
     "mocha": "^3.1.2",
     "normalize.css": "^5.0.0",
+    "npm-run-all": "^3.1.1",
     "postcss": "^5.2.5",
     "postcss-cssnext": "^2.8.0",
-    "postcss-loader": "^1.0.0",
+    "postcss-loader": "^1.1.0",
     "postcss-modules-values": "^1.2.2",
     "postcss-nested": "^1.0.0",
     "raw-loader": "^0.5.1",
@@ -59,7 +67,9 @@
     "stylelint-config-standard": "^14.0.0",
     "url-loader": "^0.5.7",
     "webpack": "^2.1.0-beta.25",
-    "webpack-dev-server": "^2.1.0-beta.9"
+    "webpack-cleanup-plugin": "^0.4.1",
+    "webpack-dev-server": "^2.1.0-beta.9",
+    "webpack-validator": "^2.2.9"
   },
   "postcss": {
     "plugins": {
