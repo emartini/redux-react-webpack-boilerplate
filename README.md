@@ -47,7 +47,7 @@ app
 
 ## Routes
 
-Followint the convention introduced by the [react-boilerplate](https://github.com/mxstbr/react-boilerplate/blob/master/app/routes.js), routes should be declared in the `app/routes.js` file. 
+Following the convention introduced by the [react-boilerplate](https://github.com/mxstbr/react-boilerplate/blob/master/app/routes.js), routes should be declared in the `app/routes.js` file. 
 
 
 ### Async routes load
@@ -55,7 +55,6 @@ Followint the convention introduced by the [react-boilerplate](https://github.co
 Using Webpack code splitting feature is possible to load each route modules asynchronously. Using the `getComponent` React Route property together with ES6/Webpack `System.import` will enable the async load of each route as a webpack chunk.
 
 For convenience routes are declared as objects and then passed as arguments to the `Router`.
-
 
 ```jsx
 // Child routes:
