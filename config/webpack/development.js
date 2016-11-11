@@ -12,11 +12,12 @@ const devConfig = {
       `webpack-dev-server/client?http://${HOST}:${PORT}`,
       'webpack/hot/only-dev-server',
       'react-hot-loader/patch',
-      defaults.entry.main
+      defaults.entry.main[0]
     ]
   },
   output: {
-    filename: 'bundle.[name].js'
+    filename: 'bundle.[name].js',
+    publicPath: '/'
   },
   module: {
     rules: [

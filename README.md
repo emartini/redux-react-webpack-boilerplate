@@ -7,6 +7,7 @@ Includes:
 - ES2015 and JSX support throught [Babel](https://babeljs.io/).
 - React 15.3
 - Redux 3.6
+- Routes: [React Router 3.0](https://github.com/ReactTraining/react-router)
 - Webpack 2 beta (with [Tree shaking](https://blog.engineyard.com/2016/tree-shaking) support)
 - [Webpack-dev-server 2](https://github.com/webpack/webpack-dev-server) supporting [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 - JS linter: ESLint, extending the [airbnb Javascript and React style guide]
@@ -43,6 +44,44 @@ app
         └── constants.js
 ```
 
+
+## Routes
+
+Followint the convention introduced by the [react-boilerplate](https://github.com/mxstbr/react-boilerplate/blob/master/app/routes.js), routes should be declared in the `app/routes.js` file. 
+
+
+### Async routes load
+
+Using Webpack code splitting feature is possible to load each route modules asynchronously. Using the `getComponent` React Route property together with ES6/Webpack `System.import` will enable the async load of each route as a webpack chunk.
+
+For convenience routes are declared as objects and then passed as arguments to the `Router`.
+
+
+```jsx
+// Child routes:
+const routes = [
+  {
+    path: '/',
+    getComponent(nextState, cb) {
+      System.import('./containers/Home')
+        .then(loadModule(cb));
+    },
+    onChange: scrollTop
+  }
+];
+
+const rootRoute = {
+  component: App,
+  childRoutes: routes
+};
+
+const Root = () => (
+  <Router
+    ...
+    routes={rootRoute}
+  />
+);
+```
 
 ## Commands
 

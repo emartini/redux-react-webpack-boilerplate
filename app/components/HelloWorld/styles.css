@@ -48,9 +48,3 @@
     text-align: center;
   }
 }
-
-.svgContainer {
-  svg > rect {
-    fill: transparent;
-  }
-}

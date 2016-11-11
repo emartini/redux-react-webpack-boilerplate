@@ -1,12 +1,24 @@
-import React from 'react';
-// Load normalize.css as global css
-import '!style!css!normalize.css';
-import HelloWorld from '../../components/HelloWorld';
+import React, { PropTypes, Children } from 'react';
+import NavigationBar from '../../components/NavigationBar';
+import styles from './styles.css';
 
-const App = () => (
+const routes = [
+  { name: 'Hello World!', to: '/' },
+  { name: 'Images', to: '/images' },
+  { name: 'Nowhere', to: '/nowhere' }
+];
+
+const App = (props) => (
   <div>
-    <HelloWorld />
+    <NavigationBar routes={routes} />
+    <main className={styles.main}>
+      {Children.toArray(props.children)}
+    </main>
   </div>
 );
+
+App.propTypes = {
+  children: PropTypes.node,
+};
 
 export default App;

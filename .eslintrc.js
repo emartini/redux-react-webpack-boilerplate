@@ -9,7 +9,6 @@ module.exports = {
     'globals': {},
     'env': {
       'browser': true,
-      'node': true,
       'mocha': true
     },
     'rules': {
@@ -28,5 +27,6 @@ module.exports = {
       'import/no-extraneous-dependencies': ['error', {'devDependencies': true, 'optionalDependencies': false, 'peerDependencies': false}],
       'new-cap': [2, {'capIsNewExceptions': ['Map', 'Set', 'List']}],
       'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
+      'react/no-unused-prop-types':[2, { skipShapeProps: true }]
     }
 };

@@ -1,0 +1,7 @@
+.svgContainer {
+  width: 600px;
+
+  svg > rect {
+    fill: transparent;
+  }
+}
