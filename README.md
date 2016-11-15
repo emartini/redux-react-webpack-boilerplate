@@ -14,6 +14,10 @@ Includes:
 (https://github.com/airbnb/javascript)
 - PostCSS supporting [CSS Modules](https://github.com/css-modules/css-modules) and [cssnext](http://cssnext.io/)
 - CSS linter: [stylelint](https://github.com/stylelint/stylelint)
+- Testing environment:
+  - Mocha as test framework and [Chai](http://chaijs.com/) as TDD assertion library
+  - [Enzyme](https://github.com/airbnb/enzyme) extended by [Chai Enzyme](https://github.com/producthunt/chai-enzyme) to test React Components
+  - [Karma](https://github.com/karma-runner/karma) as Test Runner, using Chrome by default
 
 # Code conventions
 
@@ -24,14 +28,14 @@ the directory structure is divided as [ presentational and containers components
 
 ### Testing
 
-Tests should be kept in each component directory.
+Tests should be kept in each component directory and are suffixed by `.test.js`.
 
 ```
 app
 ├── components
 │    └── HelloWorld
 │       ├── tests
-│       │   └── index.js
+│       │   └── index.test.js
 │       ├── index.js
 │       └── styles.css
 └── containers
@@ -44,10 +48,30 @@ app
         └── constants.js
 ```
 
+#### Example
+
+```jsx
+import React from 'react';
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
+
+import HelloWorld from '../index';
+
+describe('<HelloWorld />', () => {
+  it('renders a <div> tag', () => {
+    const renderedComponent = shallow(<HelloWorld />);
+    expect(renderedComponent.type()).to.equal('div');
+  });
+});
+```
+
+
+
+
 
 ## Routes
 
-Following the convention introduced by the [react-boilerplate](https://github.com/mxstbr/react-boilerplate/blob/master/app/routes.js), routes should be declared in the `app/routes.js` file. 
+Following the convention introduced by the [react-boilerplate](https://github.com/mxstbr/react-boilerplate/blob/master/app/routes.js), routes should be declared in the `app/routes.js` file.
 
 
 ### Async routes load
@@ -102,18 +126,12 @@ yarn start
 
 It will start a development server accessible from `localhost:9010`.
 
-### Check for problems
+### Check for syntax problems
 
-**CSS**:
-
-```
-yarn run validate:styles
-```
-
-**JS**:
+**CSS and JS**:
 
 ```
-yarn run validate:js
+yarn validate[:styles|:js]
 ```
 
 
@@ -123,10 +141,16 @@ yarn run validate:js
 yarn run validate:webpack:[dev|prod]
 ```
 
+### Run Tests
+
+```
+yarn test[:watch]
+```
+
 ### Production build
 
 ```
-yarn run build:prod
+yarn build:prod
 ```
 
 Output files will be placed in `./dist` and old files will be deleted after

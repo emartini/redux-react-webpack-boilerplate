@@ -17,7 +17,7 @@ const renderRoutes = (routes) => (
   ))
 );
 
-const NavigationBar = ({ routes }) => (
+const NavigationBar = ({ routes = [] }) => (
   <nav className={styles.wrapper}>
     <ul className={styles.body}>
       { renderRoutes(routes) }
