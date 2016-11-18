@@ -7,7 +7,7 @@ const defaults = require('./defaults');
 const loader = defaults.loader;
 
 loader.image = {
-  loader: 'image-webpack',
+  loader: 'image-webpack-loader',
   query: {
     mozjpeg: { quality: 85, progressive: true },
     pngquant: { quality: '65-90', speed: 0 },
@@ -22,7 +22,8 @@ const prodConfig = {
   },
   output: {
     path: path.join(defaults.webpack.context, './dist'),
-    filename: 'bundle.[name].[chunkhash].js'
+    filename: 'bundle.[name].[chunkhash].js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -35,7 +36,7 @@ const prodConfig = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: ['style', loader.css, 'postcss']
+        use: ['style-loader', loader.css, 'postcss-loader']
       }
     ]
   },
@@ -54,7 +55,6 @@ const prodConfig = {
       output: { comments: false },
       sourceMap: false
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
