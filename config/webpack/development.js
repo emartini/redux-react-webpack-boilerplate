@@ -30,7 +30,7 @@ const devConfig = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: ['style', loader.css, 'postcss']
+        use: ['style-loader', loader.css, 'postcss-loader']
       }
     ]
   },

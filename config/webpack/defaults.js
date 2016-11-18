@@ -17,7 +17,7 @@ module.exports = {
   },
   loader: {
     css: {
-      loader: 'css',
+      loader: 'css-loader',
       options: {
         module: true,
         importLoaders: 1,
@@ -25,14 +25,14 @@ module.exports = {
       }
     },
     file: {
-      loader: 'file',
+      loader: 'file-loader',
       options: {
         name: '[path][name]-[hash].[ext]'
       }
     },
     babel: {
       test: /\.js$/,
-      loader: 'babel',
+      loader: 'babel-loader',
       exclude: /node_modules/,
       query: { cacheDirectory: true }
     }

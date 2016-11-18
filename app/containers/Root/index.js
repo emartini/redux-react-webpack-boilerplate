@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, browserHistory } from 'react-router';
 
-import '!style!css!normalize.css';
+import '!style-loader!css-loader!normalize.css';
 import App from '../App';
 
 import routes from '../../routes';

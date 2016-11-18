@@ -150,7 +150,7 @@ yarn test[:watch]
 ### Production build
 
 ```
-yarn build:prod
+yarn build:production
 ```
 
 Output files will be placed in `./dist` and old files will be deleted after

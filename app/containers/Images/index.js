@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-import reactLogoInline from '!raw!../../images/logos/react.svg';
+import reactLogoInline from '!raw-loader!../../images/logos/react.svg';
 import styles from './styles.css';
 import Text from '../../components/Text';
 import reactLogo from '../../images/logos/react.svg';
