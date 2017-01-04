@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
+// eslint-disable-next-line
 import reactLogoInline from '!raw-loader!../../images/logos/react.svg';
 import styles from './styles.css';
 import Text from '../../components/Text';

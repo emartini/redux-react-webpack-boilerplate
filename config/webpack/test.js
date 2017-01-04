@@ -26,7 +26,7 @@ module.exports = {
       // See https://github.com/webpack/webpack/issues/304
       {
         test: /sinon(\\|\/)pkg(\\|\/)sinon\.js/,
-        loader: 'imports?define=>false,require=>false',
+        loader: 'imports-loader?define=>false,require=>false',
       },
       {
         test: /\.js$/,

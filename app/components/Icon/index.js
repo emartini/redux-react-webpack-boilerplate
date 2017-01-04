@@ -24,6 +24,4 @@ Icon.defaultProps = {
   color: 'black'
 };
 
-console.log(styles);
-
 export default Icon;
