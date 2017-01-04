@@ -2,6 +2,7 @@
 .node_repl_history
 node_modules
 npm-debug.log*
+yarn-error.log*
 
 #conflicts with github for mac
 
